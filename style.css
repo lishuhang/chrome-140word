@@ -1,0 +1,84 @@
+/* ===== 140字摘要 v1.6 — Unified Design System ===== */
+:root {
+  --accent: #347df8;
+  --accent-hover: #2768d9;
+  --accent-light: rgba(52,125,248,0.1);
+  --bg: #F7FAFC;
+  --bg-card: #FFFFFF;
+  --bg-secondary: #EDF2F7;
+  --bg-hover: #E2E8F0;
+  --text: #1A202C;
+  --text-secondary: #718096;
+  --text-muted: #A0AEC0;
+  --border: #E2E8F0;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --error: #E53E3E;
+  --error-bg: #FFF5F5;
+  --error-border: #FED7D7;
+  --success: #38A169;
+  --font: "Noto Sans SC","Source Han Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --font-xs: 12px;
+  --font-sm: 13px;
+  --font-base: 14px;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { -webkit-text-size-adjust:100%; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.6; font-size:var(--font-base); }
+a { color:var(--accent); text-decoration:none; transition:color .15s; }
+a:hover { color:var(--accent-hover); }
+button { font-family:inherit; }
+
+/* SVG icon utility */
+.ico { width:1em; height:1em; vertical-align:-0.125em; stroke-width:0; fill:none; stroke:currentColor; }
+.ico-fill { fill:currentColor; stroke:none; }
+
+/* ===== Shared Components ===== */
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; padding:8px 16px; border:none; border-radius:var(--radius-sm); font-size:var(--font-base); font-weight:600; cursor:pointer; transition:all .15s; }
+.btn-sm { font-size:var(--font-sm); padding:6px 12px; }
+.btn-primary { background:var(--accent); color:#fff; }
+.btn-primary:hover { background:var(--accent-hover); }
+.btn-outline { background:var(--bg-card); color:var(--accent); border:1px solid var(--accent); }
+.btn-outline:hover { background:var(--accent); color:#fff; }
+.btn-ghost { background:transparent; color:var(--text-secondary); border:1px solid var(--border); }
+.btn-ghost:hover { border-color:var(--accent); color:var(--accent); }
+.btn:disabled { opacity:.5; cursor:not-allowed; }
+
+.icon-btn { width:30px; height:30px; padding:0; border:1px solid var(--border); border-radius:var(--radius-sm); background:transparent; color:var(--text-secondary); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; transition:all .15s; }
+.icon-btn:hover { border-color:var(--accent); color:var(--accent); }
+.icon-btn svg { width:16px; height:16px; }
+
+.small-btn { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm); padding:4px 10px; font-size:var(--font-xs); cursor:pointer; color:var(--text-secondary); transition:all .15s; display:inline-flex; align-items:center; gap:4px; }
+.small-btn:hover { border-color:var(--accent); color:var(--accent); }
+.small-btn.danger:hover { border-color:var(--error); color:var(--error); }
+
+/* Form elements */
+.form-input, .form-select, .form-textarea {
+  width:100%; padding:8px 12px; border:1px solid var(--border); border-radius:var(--radius-sm);
+  background:var(--bg-card); color:var(--text); font-size:var(--font-sm); font-family:var(--font); outline:none; transition:border-color .15s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color:var(--accent); }
+.form-textarea { resize:vertical; min-height:60px; line-height:1.6; font-size:var(--font-xs); }
+.form-label { display:block; font-weight:600; font-size:var(--font-sm); margin-bottom:6px; color:var(--text); }
+.form-help { font-size:11px; color:var(--text-muted); margin-top:4px; }
+.form-group { margin-bottom:12px; }
+.required { color:var(--error); }
+.input-group { position:relative; display:flex; }
+.input-group .form-input { flex:1; border-top-right-radius:0; border-bottom-right-radius:0; border-right:none; }
+.toggle-pwd { border:1px solid var(--border); border-left:none; border-radius:0 var(--radius-sm) var(--radius-sm) 0; background:var(--bg-card); padding:8px 10px; cursor:pointer; display:flex; align-items:center; color:var(--text-muted); transition:color .15s; }
+.toggle-pwd:hover { color:var(--accent); }
+.toggle-pwd svg { width:16px; height:16px; }
+.form-actions { display:flex; gap:8px; margin-top:8px; }
+
+/* Spinner */
+.spinner { width:24px; height:24px; border:2px solid var(--border); border-top-color:var(--accent); border-radius:50%; animation:spin .6s linear infinite; margin:0 auto 12px; }
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* Toast */
+.toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); background:rgba(0,0,0,.75); color:#fff; padding:8px 16px; border-radius:20px; font-size:var(--font-xs); z-index:999; opacity:0; transition:all .3s; pointer-events:none; }
+.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+.hidden { display:none !important; }

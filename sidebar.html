@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>140字摘要</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+  <!-- SVG sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+    </symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+    </symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+    </symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+    </symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+    </symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+    </symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+    </symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>
+    </symbol>
+    <symbol id="i-save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+    </symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+    </symbol>
+    <symbol id="i-queue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+    </symbol>
+    <symbol id="i-skip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+    </symbol>
+    <symbol id="i-allow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+    </symbol>
+  </svg>
+
+  <div class="sidebar">
+    <nav class="tabs">
+      <button class="tab active" data-tab="summary">摘要</button>
+      <button class="tab" data-tab="settings">设置</button>
+    </nav>
+
+    <!-- Summary panel -->
+    <div id="panel-summary" class="panel active">
+      <!-- Queue status (always visible) -->
+      <div id="queue-status" class="queue-status">
+        <div class="queue-status-line">
+          <span class="queue-status-label">当前正在处理：</span>
+          <span id="queue-processing-title" class="queue-status-value">无</span>
+        </div>
+        <div class="queue-status-line">
+          <span class="queue-status-label">还需要处理：</span>
+          <span id="queue-waiting-count" class="queue-status-value">0 条</span>
+        </div>
+      </div>
+
+      <!-- Skip/Allow toggle (always visible, disabled when not applicable) -->
+      <div id="skip-toggle" class="skip-toggle">
+        <button id="skip-page-btn" class="skip-toggle-btn" disabled>
+          跳过本页
+        </button>
+        <button id="skip-site-btn" class="skip-toggle-btn" disabled>
+          跳过本站
+        </button>
+      </div>
+
+      <!-- History section -->
+      <div class="history-section">
+        <div class="history-toolbar">
+          <span class="history-title">历史</span>
+          <span id="history-count" class="history-count">0 条</span>
+          <label class="checkbox-label">
+            <input type="checkbox" id="include-url-checkbox"> 带链接
+          </label>
+          <button id="copy-all-btn" class="small-btn"><svg class="ico" style="width:12px;height:12px"><use href="#i-copy"/></svg> 复制全部</button>
+          <button id="export-btn" class="small-btn"><svg class="ico" style="width:12px;height:12px"><use href="#i-upload"/></svg> 导出</button>
+          <button id="clear-btn" class="small-btn danger"><svg class="ico" style="width:12px;height:12px"><use href="#i-trash"/></svg> 清空</button>
+        </div>
+        <div id="history-list" class="history-list">
+          <div class="empty-state">暂无历史记录</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings panel -->
+    <div id="panel-settings" class="panel hidden">
+      <div class="settings-content">
+        <!-- Model & API Key -->
+        <div class="opt-card">
+          <h3 class="opt-card-title">AI 模型配置</h3>
+          <p class="opt-card-desc">选择 AI 模型并配置对应的 API Key</p>
+          <form id="settings-form">
+            <div class="form-group">
+              <label class="form-label">选择 AI 模型 <span class="required">*</span></label>
+              <select id="model-select" class="form-select" required>
+                <option value="">请选择模型</option>
+                <optgroup label="智谱（免费推荐）">
+                  <option value="zhipu">智谱 GLM-4-Flash（快速·免费）</option>
+                  <option value="zhipu-thinking">智谱 GLM-4.7-Flash（深度·免费）</option>
+                </optgroup>
+                <optgroup label="其他模型">
+                  <option value="gemini">Google Gemini</option>
+                  <option value="deepseek">DeepSeek</option>
+                </optgroup>
+              </select>
+              <div class="form-help">GLM-4-Flash 速度快适合摘要；GLM-4.7-Flash 先推理再回答</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">API Key <span class="required">*</span></label>
+              <div class="input-group">
+                <input type="password" id="api-key-input" class="form-input" placeholder="请输入 API Key" required>
+                <button type="button" id="toggle-pwd" class="toggle-pwd" title="显示/隐藏">
+                  <svg class="ico"><use href="#i-eye"/></svg>
+                </button>
+              </div>
+              <div class="form-help">API Key 安全存储在浏览器中，不会发送到第三方</div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-sm"><svg class="ico" style="width:14px;height:14px"><use href="#i-save"/></svg> 保存设置</button>
+              <button type="button" id="test-btn" class="btn btn-outline btn-sm" disabled>测试连接</button>
+            </div>
+          </form>
+          <div id="status-msg" class="status-msg hidden"></div>
+        </div>
+
+        <!-- Prompt -->
+        <div class="opt-card">
+          <h3 class="opt-card-title">摘要 Prompt</h3>
+          <p class="opt-card-desc">自定义系统提示词，留空使用默认值</p>
+          <div class="form-group">
+            <label class="form-label">System Prompt</label>
+            <textarea id="prompt-input" class="form-textarea" rows="4" placeholder="留空使用默认 prompt..."></textarea>
+            <div class="form-help">修改后新摘要将立即生效</div>
+          </div>
+          <div class="prompt-actions">
+            <button type="button" id="save-prompt-btn" class="btn btn-primary btn-sm"><svg class="ico" style="width:14px;height:14px"><use href="#i-save"/></svg> 保存</button>
+            <button type="button" id="reset-prompt-btn" class="btn btn-ghost btn-sm"><svg class="ico" style="width:14px;height:14px"><use href="#i-undo"/></svg> 恢复默认</button>
+          </div>
+        </div>
+
+        <!-- Site-specific prompts (simplified: prompt only, no CSS selectors) -->
+        <div class="opt-card">
+          <h3 class="opt-card-title">网站专属提示词</h3>
+          <p class="opt-card-desc">为特定网站追加补充提示词，仅对匹配域名生效。v1.7 起不再需要 CSS 选择器配置——插件将整页渲染内容转为 Markdown 发送给 AI，AI 自动识别正文。</p>
+          <div id="site-prompts-list" class="site-prompts-list">
+            <div class="site-prompt-empty">暂无网站专属提示词</div>
+          </div>
+          <div class="form-group" style="margin-top:10px">
+            <label class="form-label">域名</label>
+            <input id="site-prompt-domain-input" class="form-input" placeholder="如 businessinsider.com">
+            <div class="form-help">输入顶级域名（如 businessinsider.com），将匹配该域名及所有子域名</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">补充提示词</label>
+            <textarea id="site-prompt-text-input" class="form-textarea" rows="3" placeholder="为此网站追加的提示词内容，如要求忽略特定宣传语、禁止输出品牌名等"></textarea>
+            <div class="form-help">补充提示词会追加到系统提示词末尾，用于约束 AI 对特定网站的行为</div>
+          </div>
+          <div class="prompt-actions">
+            <button type="button" id="save-site-prompt-btn" class="btn btn-primary btn-sm">添加</button>
+            <button type="button" id="delete-site-prompt-btn" class="btn btn-ghost btn-sm danger-btn" style="display:none">删除</button>
+            <button type="button" id="cancel-site-prompt-btn" class="btn btn-ghost btn-sm" style="display:none">取消</button>
+          </div>
+        </div>
+
+        <!-- Skip list -->
+        <div class="opt-card">
+          <h3 class="opt-card-title">跳过名单</h3>
+          <p class="opt-card-desc">这些页面/网站不会自动生成摘要。支持通配符 <code>*</code>，每行一条规则</p>
+          <div class="form-group">
+            <textarea id="skip-list-input" class="form-textarea" rows="5" placeholder="*.example.com/*&#10;https://example.com/skip-page&#10;chrome://*"></textarea>
+            <div class="form-help">规则示例：<code>*.example.com/*</code> 跳过整个站点（含所有子域名）；<code>https://example.com/page</code> 跳过指定页面。"跳过本站"自动使用顶级域名匹配，如 <code>*.businessinsider.com/*</code> 同时匹配 www.businessinsider.com 和 businessinsider.com</div>
+          </div>
+          <div class="prompt-actions">
+            <button type="button" id="save-skip-list-btn" class="btn btn-primary btn-sm"><svg class="ico" style="width:14px;height:14px"><use href="#i-save"/></svg> 保存名单</button>
+          </div>
+        </div>
+
+        <!-- Settings import/export -->
+        <div class="opt-card">
+          <h3 class="opt-card-title">设置导入/导出</h3>
+          <p class="opt-card-desc">导出所有设置为 JSON 文件，或从文件导入恢复</p>
+          <div class="form-actions">
+            <button type="button" id="export-settings-btn" class="btn btn-outline btn-sm"><svg class="ico" style="width:14px;height:14px"><use href="#i-upload"/></svg> 导出设置</button>
+            <button type="button" id="import-settings-btn" class="btn btn-ghost btn-sm"><svg class="ico" style="width:14px;height:14px"><use href="#i-download"/></svg> 导入设置</button>
+          </div>
+          <input type="file" id="import-settings-file" accept=".json" style="display:none">
+          <div id="import-status-msg" class="status-msg hidden"></div>
+        </div>
+
+        <!-- API Key Guide -->
+        <div class="opt-card">
+          <h3 class="opt-card-title">如何获取 API Key</h3>
+          <div class="api-guide">
+            <div class="api-box" style="border-left-color:#38A169">
+              <h4 style="color:#234E52">智谱 GLM（免费推荐）</h4>
+              <p>1. 访问 <a href="https://open.bigmodel.cn/" target="_blank">智谱开放平台</a></p>
+              <p>2. 注册登录 →「API Keys」创建密钥</p>
+              <p>3. 复制 Key 粘贴到上方</p>
+              <div class="api-highlight">GLM-4-Flash 和 GLM-4.7-Flash 均免费</div>
+            </div>
+            <div class="api-box">
+              <h4>Google Gemini</h4>
+              <p>访问 <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a> 创建 Key</p>
+            </div>
+            <div class="api-box">
+              <h4>DeepSeek</h4>
+              <p>访问 <a href="https://platform.deepseek.com/api_keys" target="_blank">DeepSeek 平台</a> 创建密钥</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Readme -->
+        <div class="opt-card">
+          <h3 class="opt-card-title">使用说明</h3>
+          <div class="readme-content">
+            <h4>概述</h4>
+            <p>本插件用于在浏览器中打开网页时，使用 AI 模型对网页内容生成约 140 字的一句话摘要。插件在浏览器启动后常驻后台运行，只有当用户点击工具栏图标打开右侧边栏时，才会开始对当前及后续打开的网页进行自动摘要。</p>
+
+            <h4>工作原理</h4>
+            <p>1. 插件作为 Chrome Extension (Manifest V3) 安装后，background.js 作为 Service Worker 常驻后台。</p>
+            <p>2. 当用户点击工具栏图标打开侧边栏时，插件通过 <code>chrome.sidePanel</code> API 展示 sidebar.html。</p>
+            <p>3. 侧边栏打开后，通过 <code>chrome.runtime.connect</code> 建立持久连接（port），通知 background 开始工作。</p>
+            <p>4. Background 监听标签页变化事件，仅在 sidebar port 存在时才将新页面加入摘要队列。</p>
+            <p>5. 页面加入队列前，background 会先提取页面内容并存储。v1.7 起，提取方式为：获取浏览器中已完整渲染的页面 HTML（而非从源站抓取），通过 Turndown 引擎将其转为干净的 Markdown 格式，连同页头页脚等全部内容发送给 AI 模型。AI 根据 Markdown 的结构化信息自动识别正文主体，忽略导航、广告等非正文内容。因此用户无需为不同网站配置 CSS 选择器——AI 看到的就是你看到的。</p>
+            <p>6. 队列逐个处理：使用预提取的 Markdown 文本调用 AI API，返回摘要结果。</p>
+            <p>7. 摘要结果缓存到 <code>chrome.storage.local</code>（30 分钟有效），同时保存到历史记录（最多 200 条）。</p>
+
+            <h4>摘要区域交互</h4>
+            <p>摘要结果直接显示在历史记录区域。点击标题区域在新窗口打开原文，点击摘要区域一键复制。鼠标悬停时会显示对应提示遮罩。切换标签页时，正在生成中的进度条目不会消失，会持续跟踪直到完成或出错。</p>
+
+            <h4>跳过/恢复按钮</h4>
+            <p>跳过/恢复按钮始终显示在状态区与历史记录之间。对于普通网页，可点击"跳过本页"或"跳过本站"将其加入跳过名单，已跳过的页面显示"恢复本页"/"恢复本站"。v1.6 起，"跳过本站"使用顶级域名匹配，例如对 www.businessinsider.com 点击"跳过本站"会生成 <code>*.businessinsider.com/*</code> 规则，同时匹配 businessinsider.com、www.businessinsider.com、m.businessinsider.com 等所有子域名。对于本地文件（file://），默认跳过，显示"恢复本页"按钮（点击后一次性摘要该页，不修改跳过名单）和灰色"跳过本站"按钮。对于浏览器内部页面（chrome:// 等），两个按钮均为灰色不可用。</p>
+
+            <h4>网站专属提示词</h4>
+            <p>v1.7 对此功能进行了重大简化。v1.6 版本中，网站专属配置包含"移除选择器"和"优先选择器"两个 CSS 选择器字段，用于在 DOM 层面处理特定网站的结构问题（如 Business Insider 的 <code>article</code> 标签劫持问题）。然而，CSS 选择器方案存在根本缺陷：每个网站的结构不同，用户需要理解 HTML/CSS 才能正确配置，且网站改版后选择器即失效。</p>
+            <p>v1.7 采用了全新的"所见即所送"策略：将浏览器中已完整渲染的页面 HTML 通过 Turndown 引擎转为 Markdown，整页发送给 AI。AI 可以从 Markdown 的结构化信息（标题层级、列表、链接等）中自动识别正文主体，忽略导航菜单、页头页脚、广告、侧边栏等非正文内容。这一策略从根本上消除了对 CSS 选择器的依赖——AI 看到的就是用户在浏览器中实际看到的内容。</p>
+            <p>网站专属提示词现在仅保留"补充提示词"字段，用于向 AI 传达特定网站的行为约束（如"摘要中不得出现某品牌名"）。插件内置了 businessinsider.com 的提示词，你可以在设置中编辑或删除它，也可以为其他网站添加自定义配置。域名匹配规则与"跳过本站"一致：输入顶级域名即自动匹配所有子域名。</p>
+
+            <h4>本地文件处理</h4>
+            <p>本地 HTML 文件（file:// 协议）默认不生成摘要。点击"恢复本页"可一次性对该页生成摘要，摘要完成后页面仍保持默认跳过状态，不会将本地路径加入跳过名单。如需对本地文件使用此功能，需在扩展设置中开启"允许访问文件网址"权限。</p>
+
+            <h4>核心架构</h4>
+            <p><strong>background.js</strong> — Service Worker，负责：消息路由、队列管理、页面内容提取（加入队列前即提取，两步注入：先注入 turndown.js 再注入提取函数）、API 调用（含网站专属提示词组装）、缓存与历史记录管理、跳过名单匹配（使用顶级域名）、本地文件默认跳过逻辑。注意：Turndown 不在 Service Worker 中运行（因为 Service Worker 缺少 DOMParser），而是注入到页面上下文中执行。</p>
+            <p><strong>turndown.js</strong> — 第三方库（Turndown v7.2.4），用于将 HTML 转换为 Markdown。通过 <code>chrome.scripting.executeScript({files: ['turndown.js']})</code> 注入到页面上下文，然后提取函数直接传 DOM 节点（而非 HTML 字符串）给 Turndown，绕过 DOMParser 依赖。</p>
+            <p><strong>sidebar.html + sidebar.js + sidebar.css</strong> — 侧边栏界面，包含两个 Tab：摘要（队列状态 + 跳过/恢复按钮 + 历史记录）和设置（模型配置、Prompt、网站专属提示词、跳过名单、设置导入导出、API Key 指南、使用说明、Changelog）。</p>
+
+            <h4>AI Debug 参考</h4>
+            <ul>
+              <li><strong>内容提取方式</strong>：v1.7 起，采用两步注入策略：①先通过 <code>chrome.scripting.executeScript({files: ['turndown.js']})</code> 将 Turndown 库注入页面上下文；②再注入提取函数 <code>extractPageAsMarkdown()</code>，该函数克隆已渲染的 DOM（<code>document.documentElement.cloneNode(true)</code>），移除不可见元素，创建 Turndown 实例并直接传 DOM 节点（非 HTML 字符串）给 Turndown——当 Turndown 收到 DOM 节点时，内部仅使用 <code>cloneNode()</code>，完全不需要 DOMParser。此方式确保 AI 看到的内容与用户在浏览器中实际看到的一致。</li>
+              <li><strong>Markdown 转换</strong>：Turndown 在页面上下文中运行（而非 Service Worker，因 Service Worker 缺少 DOMParser），配置了 <code>.remove()</code> 规则移除导航栏、广告、评论区、社交分享等常见非正文元素。转换后的 Markdown 会清理多余空行，并截断至 20000 字符。若 Turndown 不可用，自动降级为纯文本提取。</li>
+              <li><strong>系统提示词</strong>：v1.7 的默认提示词已包含"输入内容为网页完整 Markdown，聚焦正文主体，忽略导航/广告/页头页脚等非正文内容"的指令。网站专属提示词（仅 prompt 字段）追加在系统提示词末尾。</li>
+              <li><strong>文本预提取</strong>：v1.4 起，页面内容在加入队列前即被提取并存储在队列项的 <code>extractedText</code> 字段中。"已加入队列"时内容已安全捕获，用户可关闭标签页。</li>
+              <li><strong>队列状态</strong>：<code>currentProcessingItem</code> 跟踪正在 API 调用中的项，<code>summarizeQueue</code> 存储等待项。sidebar 通过 port 接收 <code>queueStatus</code>、<code>joinedQueue</code>、<code>processingStarted</code> 等消息。</li>
+              <li><strong>进度追踪</strong>：v1.5 起，使用 <code>progressEntries</code> Map 按 URL 追踪进度。切换标签页时进度条目不会消失，确保从"已加入队列"到"正在摘要"到"摘要完成"使用同一个框显示。</li>
+              <li><strong>网站专属提示词</strong>：v1.7 简化为仅 <code>domain</code> + <code>prompt</code> 两个字段（移除了 <code>removeSelectors</code> 和 <code>preferSelector</code>）。存储在 <code>chrome.storage.sync.sitePrompts</code>。发送 API 请求时，将 <code>prompt</code> 追加到 systemPrompt 末尾，以 <code>\n\n</code> 分隔。内置提示词在插件安装时初始化，更新版本时自动迁移旧格式并补充新的内置条目，用户可编辑或删除。</li>
+              <li><strong>跳过名单</strong>：存储在 <code>chrome.storage.sync.skipList</code>，匹配使用通配符转正则。"跳过本站"使用 <code>extractRegistrableDomain</code> 提取顶级域名生成模式，<code>urlMatchesPattern</code> 对此类模式特殊处理，同时匹配域名本身及其所有子域名。sidebar 的跳过/恢复按钮即时切换，与设置区文本框双向同步。</li>
+              <li><strong>本地文件</strong>：<code>file://</code> 协议的页面默认跳过，"恢复本页"触发 <code>forceSummarize</code>（绕过跳过检查），不修改跳过名单。需开启"允许访问文件网址"权限。</li>
+              <li><strong>历史交互</strong>：标题区域点击 → <code>chrome.tabs.create</code> 打开原文；摘要区域点击 → <code>navigator.clipboard.writeText</code> 复制。</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Changelog -->
+        <div class="opt-card">
+          <h3 class="opt-card-title">Changelog</h3>
+          <div class="changelog-content">
+            <div class="changelog-item">
+              <div class="changelog-version">v1.8</div>
+              <div class="changelog-date">2026-06-07</div>
+              <ul class="changelog-list">
+                <li>统一插件描述与商店描述，去除版本号特有表述</li>
+                <li>修正 Changelog 中 Turndown 注入方式的描述错误</li>
+                <li>开源发布至 GitHub</li>
+              </ul>
+            </div>
+            <div class="changelog-item">
+              <div class="changelog-version">v1.7</div>
+              <div class="changelog-date">2026-06-07</div>
+              <ul class="changelog-list">
+                <li><strong>全新内容提取引擎</strong>：废弃基于 CSS 选择器的文本提取方式，改用 Turndown 引擎将浏览器中已完整渲染的页面 HTML 转为干净的 Markdown 格式，整页发送给 AI。AI 根据 Markdown 的结构化信息自动识别正文主体，用户无需再为不同网站配置 CSS 选择器</li>
+                <li><strong>所见即所送</strong>：AI 看到的内容就是用户在浏览器中实际看到的内容（包含页头页脚），而非从源站以爬虫方式抓取的原始 HTML。这确保了 JavaScript 动态渲染的内容也能被正确提取</li>
+                <li><strong>默认提示词升级</strong>：系统默认提示词新增"输入内容为网页完整 Markdown，聚焦正文主体，忽略导航菜单、页头页脚、广告等非正文内容；除非品牌名是报道事件中的当事人，否则不得出现品牌名"的指令，从 Prompt 层面解决品牌注入问题</li>
+                <li><strong>网站专属提示词简化</strong>：移除"移除选择器"和"优先选择器"两个 CSS 选择器字段，仅保留"补充提示词"字段。Turndown + AI 自动识别正文使得选择器不再必要</li>
+                <li><strong>内置 Turndown.js</strong>：集成 Turndown v7.2.4 库（约 27KB），通过 <code>chrome.scripting.executeScript</code> 注入到页面上下文执行</li>
+                <li><strong>自动迁移旧配置</strong>：从 v1.6 升级时，自动将旧格式的网站提示词（含 removeSelectors/preferSelector 字段）迁移为仅含 prompt 字段的新格式</li>
+                <li><strong>内容截断上限提升</strong>：从 12000 字符提升至 20000 字符，Markdown 格式保留了结构信息，需要更多字符空间</li>
+              </ul>
+            </div>
+            <div class="changelog-item">
+              <div class="changelog-version">v1.6</div>
+              <div class="changelog-date">2026-06-07</div>
+              <ul class="changelog-list">
+                <li>修复"跳过本站"在 URL 子域名变化时无法识别的问题：现在使用顶级域名匹配</li>
+                <li>新增"网站专属配置"功能：可为特定域名设置文本提取规则和补充提示词</li>
+                <li>内置 businessinsider.com 配置</li>
+              </ul>
+            </div>
+            <div class="changelog-item">
+              <div class="changelog-version">v1.5</div>
+              <div class="changelog-date">2026-05-15</div>
+              <ul class="changelog-list">
+                <li>修复已加入队列的文章切换标签页或关闭后进度条消失的问题</li>
+                <li>本地文件默认不摘要，点击"恢复本页"一次性摘要</li>
+                <li>跳过/恢复按钮始终显示</li>
+              </ul>
+            </div>
+            <div class="changelog-item">
+              <div class="changelog-version">v1.4</div>
+              <div class="changelog-date">2026-05-15</div>
+              <ul class="changelog-list">
+                <li>页面文本在加入队列前即提取，用户可安全关闭标签页</li>
+                <li>摘要直接在历史记录中显示</li>
+              </ul>
+            </div>
+            <div class="changelog-item">
+              <div class="changelog-version">v1.3</div>
+              <div class="changelog-date">2026-05-15</div>
+              <ul class="changelog-list">
+                <li>重新设计队列状态显示</li>
+                <li>修复队列可靠性</li>
+              </ul>
+            </div>
+            <div class="changelog-item">
+              <div class="changelog-version">v1.2</div>
+              <div class="changelog-date">2026-05-15</div>
+              <ul class="changelog-list">
+                <li>新增跳过名单和设置导入/导出</li>
+              </ul>
+            </div>
+            <div class="changelog-item">
+              <div class="changelog-version">v1.1</div>
+              <div class="changelog-date">2026-05-15</div>
+              <ul class="changelog-list">
+                <li>插件常驻后台运行，新增队列机制</li>
+              </ul>
+            </div>
+            <div class="changelog-item">
+              <div class="changelog-version">v1.0</div>
+              <div class="changelog-date">2026-04-28</div>
+              <ul class="changelog-list">
+                <li>初始版本</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span class="footer-text">140字摘要 v1.8 · <a href="https://lishuhang.me/" target="_blank">Shuhang Li</a></span>
+    </footer>
+  </div>
+
+  <script src="sidebar.js"></script>
+</body>
+</html>

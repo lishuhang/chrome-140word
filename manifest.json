@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "140字摘要",
+  "version": "1.8",
+  "description": "AI生成网页140字摘要，后台队列处理，侧边栏查看，历史记录可导出。支持智谱GLM免费模型。采用Turndown引擎将渲染页面转为Markdown输入AI。",
+  "author": "Shuhang Li",
+  "permissions": ["activeTab", "scripting", "storage", "sidePanel"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "140字摘要",
+    "default_icon": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "side_panel": { "default_path": "sidebar.html" },
+  "background": { "service_worker": "background.js" },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+}

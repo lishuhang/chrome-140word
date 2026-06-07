@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Rounded square background -->
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="#347df8"/>
+  <!-- Document icon -->
+  <path d="M38 24 h32 l20 20 v52 a8 8 0 0 1-8 8 h-44 a8 8 0 0 1-8-8 v-64 a8 8 0 0 1 8-8z" fill="white" fill-opacity="0.95"/>
+  <!-- Document fold -->
+  <path d="M70 24 v12 a8 8 0 0 0 8 8 h12" fill="white" fill-opacity="0.7"/>
+  <!-- Text lines representing summary -->
+  <rect x="44" y="56" width="40" height="4" rx="2" fill="#347df8"/>
+  <rect x="44" y="66" width="32" height="4" rx="2" fill="#347df8" fill-opacity="0.7"/>
+  <rect x="44" y="76" width="36" height="4" rx="2" fill="#347df8" fill-opacity="0.5"/>
+</svg>
